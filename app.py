@@ -11,7 +11,7 @@ st.title("Fraud Detection System - PaySim Dataset")
 st.subheader("Enter transaction details:")
 
 # Collect user inputs
-step = st.number_input("Step (Time Step)", value=1)
+hour = st.number_input("Hour of the Day (0 to 23)", min_value=0, max_value=23, step=1, value=0)
 amount = st.number_input("Transaction Amount", value=0.0)
 oldbalanceOrg = st.number_input("Old Balance of Sender", value=0.0)
 newbalanceOrig = st.number_input("New Balance of Sender", value=0.0)
@@ -22,7 +22,7 @@ transaction_type = st.selectbox("Transaction Type", ['CASH_IN', 'CASH_OUT', 'DEB
 
 # Prepare input dictionary with required features
 input_dict = {
-    'step': step,
+    'hour' : hour,
     'amount': amount,
     'oldbalanceOrg': oldbalanceOrg,
     'newbalanceOrig': newbalanceOrig,
